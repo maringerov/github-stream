@@ -16,7 +16,6 @@
     "events"
   ],
   "author": "Marin Gerov",
-
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^5.8.20",
@@ -31,6 +30,8 @@
     "webpack-merge": "^0.1.2"
   },
   "dependencies": {
+    "axios": "^0.5.4",
+    "radium": "^0.13.7",
     "react": "^0.13.3"
   }
 }
