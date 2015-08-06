@@ -8,13 +8,18 @@ function getUserInfo(username) {
   return axios.get(`https://api.github.com/users/${username}`);
 };
 
+function getPublicActivity(username) {
+  return axios.get(`https://api.github.com/users/${username}/events/public`);
+};
+
 var helpers = {
   getGithubInfo(username) {
-    return axios.all([getRepos(username), getUserInfo(username)])
+    return axios.all([getRepos(username), getUserInfo(username), getPublicActivity(username)])
       .then((arr) => {
         return {
           repos: arr[0].data,
-          bio: arr[1].data
+          bio: arr[1].data,
+          events: arr[2].data
         }
       });
   }

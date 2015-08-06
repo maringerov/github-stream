@@ -21,7 +21,7 @@ export default class Bio extends Component {
       </div>
     );
   }
-}
+};
 
 const styles = {
   bio: {
@@ -31,4 +31,4 @@ const styles = {
       borderRadius: '50%',
     }
   }
-}
+};

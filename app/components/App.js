@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radium, { Style } from 'radium';
 import Bio from './Bio';
+import Events from './Events';
 import helpers from '../utils/helpers';
 
 export default class App extends Component {
@@ -8,7 +9,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       repos: [],
-      bio: {}
+      bio: {},
+      events: []
     }
   }
   init() {
@@ -16,7 +18,8 @@ export default class App extends Component {
       .then((dataObj) => {
         this.setState({
           repos: dataObj.repos,
-          bio: dataObj.bio
+          bio: dataObj.bio,
+          events: dataObj.events
         });
       });
   }
@@ -31,6 +34,7 @@ export default class App extends Component {
       <div style={styles.main}>
         {this.applyStyle()}
         <Bio username={'maringerov'} bio={this.state.bio}/>
+        <Events events={this.state.events} />
       </div>
     );
   }
@@ -46,7 +50,7 @@ export default class App extends Component {
       }
       }} />
   }
-}
+};
 
 const styles = {
   main: {
@@ -55,4 +59,4 @@ const styles = {
     padding: '1em 1.5em',
     background: 'whitesmoke'
   }
-}
+};
