@@ -14,7 +14,7 @@ export default class Events extends Component {
       );
     });
     return (
-      <div>
+      <div style={styles.eventsContainer}>
         <h3>Events</h3>
         <hr />
         <ul style={styles.eventList}>{events}</ul>
@@ -24,6 +24,9 @@ export default class Events extends Component {
 };
 
 const styles = {
+  eventsContainer: {
+    clear: 'both'
+  },
   eventList: {
     listStyleType: 'none'
   }
