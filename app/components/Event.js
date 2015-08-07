@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import moment from 'moment';
 import Radium from 'radium';
 
 @Radium
@@ -25,14 +26,16 @@ export default class Event extends Component {
         });
       });
   }
-  
+
   render() {
     const { event } = this.props;
+    const time_ago = moment(event.created_at).fromNow();
+    
     return (
       <li style={styles.event}>
         {event.type} on <a href={this.state.repo_url}>{event.repo.name}</a>
         <br />
-        <small>{event.created_at}</small>
+        <small>{time_ago}</small>
       </li>
     );
   }
