@@ -9,7 +9,7 @@ function getUserInfo(username) {
 };
 
 function getPublicActivity(username) {
-  return axios.get(`https://api.github.com/users/${username}/events/public`);
+  return axios.get(`https://api.github.com/users/${username}/events/public?per_page=10`);
 };
 
 var helpers = {
