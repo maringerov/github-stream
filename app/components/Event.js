@@ -66,6 +66,8 @@ export default class Event extends Component {
 
 const styles = {
   event: {
-    borderBottom: '1px solid grey'
+    borderBottom: '1px solid grey',
+    paddingTop: '1em',
+    paddingBottom: '1em'
   }
 };

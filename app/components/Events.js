@@ -15,8 +15,7 @@ export default class Events extends Component {
     });
     return (
       <div style={styles.eventsContainer}>
-        <h3>Events</h3>
-        <hr />
+        <h3 style={styles.heading}>Recent Activity</h3>
         <ul style={styles.eventList}>{events}</ul>
       </div>
     );
@@ -27,7 +26,12 @@ const styles = {
   eventsContainer: {
     clear: 'both'
   },
+  heading: {
+    marginBottom: 0
+  },
   eventList: {
-    listStyleType: 'none'
+    listStyleType: 'none',
+    paddingLeft: 0,
+    marginTop: 0
   }
 };
