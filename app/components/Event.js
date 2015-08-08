@@ -53,11 +53,14 @@ export default class Event extends Component {
   render() {
     const { event } = this.props;
     const time_ago = moment(event.created_at).fromNow();
-
+    // const commitMsg = event.payload.commits.map((commit, i) => {
+    //   return <li key={i}>{commit.message}</li>;
+    // });
     return (
       <li style={styles.event}>
         {this.state.eventType} <a href={this.state.repo_url}>{event.repo.name}</a>
         <br />
+        {/* <ul>{commitMsg}</ul> */}
         <small>{time_ago}</small>
       </li>
     );
