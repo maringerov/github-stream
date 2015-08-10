@@ -8,7 +8,7 @@ export default class Event extends Component {
     super(props);
     this.state = {
       repo_url: '',
-      eventType: ''
+      event_type: ''
     };
   }
 
@@ -16,7 +16,7 @@ export default class Event extends Component {
     event: PropTypes.object.isRequired
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch(this.props.event.repo.url)
       .then(res => {
         return res.json()
@@ -30,22 +30,22 @@ export default class Event extends Component {
     switch (this.props.event.type) {
       case 'PushEvent':
         this.setState({
-          eventType: 'Pushed to'
+          event_type: 'Pushed to'
         });
         break;
       case 'WatchEvent':
         this.setState({
-          eventType: 'Starred'
+          event_type: 'Starred'
         });
         break;
       case 'CreateEvent':
         this.setState({
-          eventType: 'Created'
+          event_type: 'Created'
         });
         break;
       default:
         this.setState({
-          eventType: this.props.event.type
+          event_type: this.props.event.type
         });
     }
   }
@@ -56,12 +56,18 @@ export default class Event extends Component {
 
     const commitMsg = event.type === 'PushEvent' ?
       event.payload.commits.map((commit, i) => {
-        return <li key={i}>{commit.message}</li>;
-        }) : '';
+        return (
+          <li key={i}>
+            <small>
+              <a href='#'>{commit.sha.substr(0,6)}</a> {commit.message}
+            </small>
+          </li>
+        );
+      }) : '';
 
     return (
       <li style={styles.event}>
-        {this.state.eventType} <a href={this.state.repo_url}>{event.repo.name}</a>
+        {this.state.event_type} <a href={this.state.repo_url}>{event.repo.name}</a>
         <br />
         <ul>{commitMsg}</ul>
         <small>{time_ago}</small>
