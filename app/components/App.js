@@ -55,8 +55,9 @@ export default class App extends Component {
 const styles = {
   main: {
     width: '20em',
+    height: 300,
+    overflow: 'scroll',
     margin: '0 auto',
-    padding: '1em 1.5em',
     background: 'whitesmoke'
   }
 };

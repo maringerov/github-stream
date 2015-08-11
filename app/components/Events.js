@@ -24,7 +24,9 @@ export default class Events extends Component {
 
 const styles = {
   eventsContainer: {
-    clear: 'both'
+    clear: 'both',
+    marginTop: 100,
+    padding: '0 10px'
   },
   heading: {
     marginBottom: 0
