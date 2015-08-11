@@ -55,7 +55,7 @@ export default class Event extends Component {
     const time_ago = moment(event.created_at).fromNow();
 
     const commitMsg = event.type === 'PushEvent' ?
-      event.payload.commits.map((commit, i) => {
+      event.payload.commits.slice(0,2).map((commit, i) => {
         return (
           <li key={i}>
             <small>
