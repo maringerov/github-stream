@@ -1,3 +1,5 @@
+import styles from './App.css'
+
 import React, { Component } from 'react';
 import Radium, { Style } from 'radium';
 import Bio from './Bio';
@@ -31,33 +33,32 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div style={styles.main}>
-        {this.applyStyle()}
+      <div className={styles.app}>
         <Bio username={'maringerov'} bio={this.state.bio}/>
         <Events events={this.state.events} />
       </div>
     );
   }
-  applyStyle() {
-    return <Style rules={{
-      body: {
-        margin: 0,
-        fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-        fontSize: 16
-      },
-      html: {
-        background: '#ccc'
-      }
-      }} />
-  }
+  // applyStyle() {
+  //   return <Style rules={{
+  //     body: {
+  //       margin: 0,
+  //       fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+  //       fontSize: 16
+  //     },
+  //     html: {
+  //       background: '#ccc'
+  //     }
+  //     }} />
+  // }
 };
 
-const styles = {
-  main: {
-    width: '20em',
-    height: 300,
-    overflow: 'scroll',
-    margin: '0 auto',
-    background: 'whitesmoke'
-  }
-};
+// const styles = {
+//   main: {
+//     width: '20em',
+//     height: 300,
+//     overflow: 'scroll',
+//     margin: '0 auto',
+//     background: 'whitesmoke'
+//   }
+// };
