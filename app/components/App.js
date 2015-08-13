@@ -34,31 +34,22 @@ export default class App extends Component {
   render() {
     return (
       <div className={styles.app}>
+        {this.applyStyle()}
         <Bio username={'maringerov'} bio={this.state.bio}/>
         <Events events={this.state.events} />
       </div>
     );
   }
-  // applyStyle() {
-  //   return <Style rules={{
-  //     body: {
-  //       margin: 0,
-  //       fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-  //       fontSize: 16
-  //     },
-  //     html: {
-  //       background: '#ccc'
-  //     }
-  //     }} />
-  // }
+  applyStyle() {
+    return <Style rules={{
+      body: {
+        margin: 0,
+        fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+        fontSize: 16
+      },
+      html: {
+        background: '#ccc'
+      }
+      }} />
+  }
 };
-
-// const styles = {
-//   main: {
-//     width: '20em',
-//     height: 300,
-//     overflow: 'scroll',
-//     margin: '0 auto',
-//     background: 'whitesmoke'
-//   }
-// };
