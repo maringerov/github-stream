@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var merge = require('webpack-merge');
 
 var TARGET = process.env.TARGET;
@@ -14,11 +15,18 @@ var common = {
     path: path.resolve(ROOT_PATH, 'build'),
     filename: 'bundle.js'
   },
+  // devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.css$/,
         loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader',
+        include: path.resolve(ROOT_PATH, 'app')
+      },
+      {
+        test: /\.less$/,
+        // loader: ExtractTextPlugin.extract('style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less?sourceMap'),
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less?sourceMap',
         include: path.resolve(ROOT_PATH, 'app')
       }
     ]
@@ -26,7 +34,8 @@ var common = {
   plugins: [
     new HtmlwebpackPlugin({
       title: 'Github Stream'
-    })
+    }),
+    // new ExtractTextPlugin('styles.css')
   ]
 };
 
