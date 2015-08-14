@@ -1,8 +1,7 @@
+import styles from './Events.less';
 import React, { Component, PropTypes } from 'react';
 import Event from '../event/Event';
-import Radium from 'radium';
 
-@Radium
 export default class Events extends Component {
   static propTypes = {
     events: PropTypes.array.isRequired
@@ -14,26 +13,10 @@ export default class Events extends Component {
       );
     });
     return (
-      <div style={styles.eventsContainer}>
-        <h3 style={styles.heading}>Recent Activity</h3>
-        <ul style={styles.eventList}>{events}</ul>
+      <div className={styles.eventsContainer}>
+        <h3>Recent Activity</h3>
+        <ul>{events}</ul>
       </div>
     );
-  }
-};
-
-const styles = {
-  eventsContainer: {
-    clear: 'both',
-    marginTop: 100,
-    padding: '0 10px'
-  },
-  heading: {
-    marginBottom: 0
-  },
-  eventList: {
-    listStyleType: 'none',
-    paddingLeft: 0,
-    marginTop: 0
   }
 };
