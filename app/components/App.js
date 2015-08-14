@@ -2,8 +2,8 @@ import styles from './App.css'
 
 import React, { Component } from 'react';
 import Radium, { Style } from 'radium';
-import Bio from './Bio';
-import Events from './Events';
+import Bio from './bio/Bio';
+import Events from './events/Events';
 import helpers from '../utils/helpers';
 
 export default class App extends Component {
