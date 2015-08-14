@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
 import styles from './Bio.less'
+import React, { Component, PropTypes } from 'react';
 
 export default class Bio extends Component {
   static propTypes = {

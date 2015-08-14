@@ -1,8 +1,7 @@
+import styles from './Event.less';
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
-import Radium from 'radium';
 
-@Radium
 export default class Event extends Component {
   constructor(props) {
     super(props);
@@ -66,20 +65,12 @@ export default class Event extends Component {
       }) : '';
 
     return (
-      <li style={styles.event}>
+      <li className={styles.event}>
         {this.state.event_type} <a href={this.state.repo_url}>{event.repo.name}</a>
         <br />
         <ul>{commitMsg}</ul>
         <small>{time_ago}</small>
       </li>
     );
-  }
-};
-
-const styles = {
-  event: {
-    borderBottom: '1px solid grey',
-    paddingTop: '1em',
-    paddingBottom: '1em'
   }
 };
